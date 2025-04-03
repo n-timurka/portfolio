@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Mykola Timurka | Full-Stack Engeneer, Portfolio</title>
+    <meta name="description" content="Discover Mykola Timurka's portfolio – a full-stack web developer specializing in modern JavaScript and PHP frameworks. Explore projects, skills, and contact details.">
     <link rel="icon" type="image/png" href="./img/logo.png" />
-    <script defer src="main.js"></script>
-    <script defer src="canvas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
         @theme {
           --color-accent: #64FFDA;
           --color-primary: #1e293b;
-          --color-secondary: #64748b;
-          --color-text-dark: #1e293b;
-          --color-nav-link: #e2e8f0;
+          --color-secondary: #99a1af;
+          --color-light: #e2e8f0;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -34,7 +31,7 @@
         <!-- Navigation Bar -->
         <nav class="mx-4 md:mx-8">
             <!-- Desktop Menu -->
-            <ul class="list-none hidden md:flex space-x-8">
+            <ul class="list-none text-light hidden md:flex space-x-8">
                 <li><a href="#about" class="scroll-link border-b border-transparent transition-colors hover:text-accent">About</a></li>
                 <li><a href="#skills" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Skills</a></li>
                 <li><a href="#projects" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Projects</a></li>
@@ -49,16 +46,16 @@
             </button>
 
             <!-- Mobile Menu Panel -->
-            <div id="mobile-menu" class="fixed z-10 top-0 right-0 h-fit w-full bg-secondary transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center py-10 space-y-6">
+            <div id="mobile-menu" class="fixed z-10 top-0 right-0 h-fit w-full bg-secondary text-light transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center py-10 space-y-6">
                 <button id="close-menu" class="absolute top-4 right-4 text-accent">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-                <a href="#about" class="scroll-link text-nav-link text-xl hover:text-accent">About</a>
-                <a href="#skills" class="scroll-link text-nav-link text-xl hover:text-accent">Skills</a>
-                <a href="#projects" class="scroll-link text-nav-link text-xl hover:text-accent">Projects</a>
-                <a href="#contacts" class="scroll-link text-nav-link text-xl hover:text-accent">Contact</a>
+                <a href="#about" class="scroll-link text-xl hover:text-accent">About</a>
+                <a href="#skills" class="scroll-link text-xl hover:text-accent">Skills</a>
+                <a href="#projects" class="scroll-link text-xl hover:text-accent">Projects</a>
+                <a href="#contacts" class="scroll-link text-xl hover:text-accent">Contact</a>
             </div>
         </nav>
     </header>
@@ -67,19 +64,19 @@
         <!-- Hero Section -->
         <section class="w-full h-screen relative overflow-hidden pt-24 snap-start" id="hero">
             <canvas class="absolute" id="background-animation"></canvas>
-            <div class="relative h-full flex items-center justify-between mx-[10%]">
-                <div class="flex-1">
+            <div class="relative h-full flex flex-col md:flex-row items-center justify-center gap-8 mx-4 md:mx-[10%] md:-translate-y-12">
+                <div class="md:flex-1">
                     <p class="text-xl font-semibold text-accent">Hi, my name is</p>
-                    <h2 class="text-6xl font-bold mb-4">Mykola Timurka</h2>
+                    <h2 class="text-3xl md:text-6xl font-bold mb-4">Mykola Timurka</h2>
                     <p class="text-lg text-secondary">
                         I'm a full-stack web developer specializing in modern JavaScript and PHP frameworks.
                     </p>
                 </div>
-                <div class="md:flex-1 h-auto">
-                    <!-- <video class="object-cover opacity-50" autoplay muted loop>
-                        <source src="./img/hero.mp4" type="video/mp4">
+                <div class="md:flex-1 h-auto overflow-hidden shadow-2xl">
+                    <video class="object-cover" autoplay muted loop>
+                        <source src="./hero.mp4" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video> -->
+                    </video>
                 </div>
             </div>
             <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-accent rounded-full border-accent border-2 px-2 py-4 animate-pulse">
@@ -88,38 +85,38 @@
         </section>
 
         <section class="snap-start w-full h-screen relative overflow-hidden pt-24" id="about">
-            <div class="h-full mx-[10%] grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="h-full mx-4 md:mx-[10%] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:items-center">
                 <!-- Left Side: About Text -->
-                <div class="flex-1 order-2 text-lg">
-                    <h2 class="text-3xl font-bold mb-4 text-accent">About Me</h2>
-                    <p class="text-gray-300 mb-4">
-                        I'm a passionate web developer with over 10 years of experience building modern web applications.
+                <div class="flex-1 order-2 md:order-1 space-y-4 text-lg text-secondary">
+                    <h2 class="text-3xl font-bold text-accent">About Me</h2>
+                    <p>
+                        I'm a passionate web developer with over 12 years of experience building modern web applications.
                         My journey started with PHP, and over the years, I've transitioned to JavaScript frameworks like Vue.js and backend solutions using Nest.js.
                     </p>
-                    <p class="text-gray-300 mb-4">
-                        I specialize in building SaaS platforms, e-commerce solutions, and scalable APIs.
-                        My expertise includes working with AWS, PostgreSQL, and Stripe for seamless payment integrations.
+                    <p>
+                        Throughout my career, I have designed and implemented numerous SaaS applications, microservices architectures, and complex APIs
                     </p>
-                    <p class="text-gray-300 mb-8">
-                        When I'm not coding, I enjoy exploring new tech trends, contributing to open-source projects, and sharing knowledge with the community.
+                    <p>
+                        I have a proven ability to lead end-to-end projects, collaborate effectively with cross-functional teams, and solve complex technical challenges.
                     </p>
+
                     <a target="_blank" href="./cv.pdf" download="CV Mykola Timurka (Full-Stack Developer, JS_PHP).pdf" class="px-4 py-2 bg-accent rounded text-primary hover:bg-accent/50 transition-colors">Download CV</a>
                 </div>
 
                 <!-- Right Side: Image with Effect -->
-                <div class="hidden md:block relative group w-full max-w-sm mx-auto order-1">
-                    <div class="relative overflow-hidden rounded-lg shadow-lg">
-                        <img src="./img/photo.jpg" alt="Your Name" class="w-full md:h-auto md:object-cover transition-transform duration-300 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-black opacity-20 group-hover:opacity-40 transition duration-300"></div>
+                <div class="relative group w-full max-w-sm mx-auto order-1 md:order-2">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="./img/photo.webp" width="384px" height="512px" alt="Mykola Timurka" class="w-full md:h-auto md:object-cover object-contain transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-accent contrast-300 opacity-30 group-hover:opacity-0 transition duration-300"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="snap-start w-full h-screen relative overflow-hidden pt-24" id="skills">
-            <h2 class="text-center text-3xl font-bold mb-8 text-accent">Skills</h2>
+        <section class="snap-start w-full min-h-screen relative overflow-hidden pt-24" id="skills">
+            <h2 class="text-center text-3xl font-bold mb-4 md:mb-8 text-accent">Skills</h2>
 
-            <div class="px-4 md:px-[10%] md:flex md:space-x-16">
+            <div class="px-4 md:px-[10%] flex flex-col md:flex-row gap-16">
                 <div class="flex-1">
                     <h3 class="text-white font-semibold text-xl mb-4">My Skillset:</h3>
                     <div class="flex justify-between mb-6">
@@ -175,12 +172,10 @@
                             <h3 class="text-lg font-semibold mb-4 border-b-2 border-accent">Cloud & DevOps</h3>
                             <ul class="space-y-1 text-sm font-light">
                                 <li>AWS</li>
-                                <ul class="ml-2 text-secondary">
-                                    <li>Lambda, Cognito, IAM</li>
-                                    <li>Elastic Beanstalk, Amplify, S3</li>
-                                    <li>RDS, DynamoDB</li>
-                                    <li>SNS, SES, SQS</li>
-                                </ul>
+                                <li class="ml-2 text-secondary">Lambda, Cognito, IAM</li>
+                                <li class="ml-2 text-secondary">Elastic Beanstalk, Amplify, S3</li>
+                                <li class="ml-2 text-secondary">RDS, DynamoDB</li>
+                                <li class="ml-2 text-secondary">SNS, SES, SQS</li>
                                 <li>Docker</li>
                             </ul>
                             <i class="fa-solid fa-terminal text-gray-100/20 text-6xl absolute bottom-6 right-6"></i>
@@ -188,10 +183,10 @@
                     </div>
                 </div>
 
-                <div class="flex-1 space-y-4">
+                <div class="flex-1 space-y-4 mb-4">
                     <h3 class="text-white font-semibold text-lg mb-4">My Experience:</h3>
                     <div class="accordion-item border border-accent rounded-lg overflow-hidden transition-colors">
-                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent text-text-dark font-semibold">
+                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent text-primary font-semibold">
                             <span>Full-Stack Engineer <span class="font-light">(A-Team Global)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(April 2023 &ndash; Present)</span> 
@@ -217,7 +212,7 @@
                         </div>
                     </div>
                     <div class="accordion-item border border-accent/70 rounded-lg overflow-hidden">
-                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-text-dark font-semibold">
+                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-primary font-semibold">
                             <span>Full-Stack Engineer <span class="font-light">(Svitla Systems)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(October 2021 - December 2022)</span>
@@ -243,7 +238,7 @@
                         </div>
                     </div>
                     <div class="accordion-item border border-accent/70 rounded-lg overflow-hidden">
-                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-text-dark font-semibold">
+                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-primary font-semibold">
                             <span>Full-Stack Engineer <span class="font-light">(Brightgrove)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(May 2019 - October 2021)</span>
@@ -269,7 +264,7 @@
                         </div>
                     </div>
                     <div class="accordion-item border border-accent/70 rounded-lg overflow-hidden">
-                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-text-dark font-semibold">
+                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-primary font-semibold">
                             <span>Full-Stack Engineer <span class="font-light">(Vilmate)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(September 2018 - April 2019)</span>
@@ -295,7 +290,7 @@
                         </div>
                     </div>
                     <div class="accordion-item border border-accent/70 rounded-lg overflow-hidden">
-                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-text-dark font-semibold">
+                        <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent/70 text-primary font-semibold">
                             <span>PHP Developer <span class="font-light">(Promodo)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(February 2012 - August 2018)</span>
@@ -324,13 +319,13 @@
             </div>
         </section>
 
-        <section class="snap-start w-full h-screen relative overflow-hidden pt-24" id="projects">
+        <section class="snap-start w-full min-h-screen relative overflow-hidden pt-24" id="projects">
             <h2 class="text-center text-3xl font-bold mb-2 text-accent">Projects</h2>
-            <p class="text-center text-sm text-secondary mb-8">The huge amount of my code is under the NDI, but here are my personal projects.</p>
+            <p class="text-center text-sm text-secondary mb-8">The main part of code I produces is under the NDI, so I can`t share it with the world. But here are some of my personal projects as example.</p>
             <div class="mx-[10%] grid md:grid-cols-3 gap-8">
                 <div class="group text-secondary rounded">
                     <div class="w-full max-h-64 overflow-hidden">
-                        <img class="object-cover group-hover:scale-125 transition-transform" src="./img/fan-store.jpg" alt="Fan Store Project">
+                        <img class="object-cover group-hover:scale-125 transition-transform" src="./img/fan-store.webp" alt="Fan Store Project">
                     </div>
                     <div class="p-4 bg-accent/10 text-gray-300">
                         <h3 class="mb-2 text-xl text-white font-semibold group-hover:text-accent transition-colors">Fan Store</h3>
@@ -385,7 +380,7 @@
                         <textarea id="message" name="message" rows="5" placeholder="Hi, I think wee need your services for company X" required class="w-full p-2 border-1 border-white rounded resize-none"></textarea>
                     </div>
                     
-                    <button type="submit" class="cursor-pointer bg-accent hover:bg-accent/85 transition-colors text-text-dark px-3 py-2 rounded">Send Message</button>
+                    <button type="submit" class="cursor-pointer bg-accent hover:bg-accent/85 transition-colors text-primary px-3 py-2 rounded">Send Message</button>
                 </form>
 
                 <p class="font-light text-secondary mb-4">or connect with Me by my social networks:</p>
@@ -412,5 +407,9 @@
     <a href="#hero" id="back-to-top-btn" class="hidden scroll-link text-center leading-11 cursor-pointer fixed bottom-8 right-8 text-accent border-2 bg-accent/10 hover:bg-accent/50 transition-colors rounded-full h-12 w-12">
         <i class="fa fa-arrow-up"></i>
     </a>
+    
+    <script src="https://kit.fontawesome.com/7bbae2d200.js" crossorigin="anonymous"></script>
+    <script defer src="./js/main.js"></script>
+    <script defer src="./js/canvas.js"></script>
 </body>
 </html>
