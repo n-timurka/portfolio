@@ -34,6 +34,7 @@
             <ul class="list-none text-light hidden md:flex space-x-8">
                 <li><a href="#about" class="scroll-link border-b border-transparent transition-colors hover:text-accent">About</a></li>
                 <li><a href="#skills" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Skills</a></li>
+                <li><a href="#career" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Career</a></li>
                 <li><a href="#projects" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Projects</a></li>
                 <li><a href="#contacts" class="scroll-link border-b border-transparent transition-colors hover:text-accent">Contact</a></li>
             </ul>
@@ -47,13 +48,14 @@
 
             <!-- Mobile Menu Panel -->
             <div id="mobile-menu" class="fixed z-10 top-0 right-0 h-fit w-full bg-secondary text-light transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col items-center py-10 space-y-6">
-                <button id="close-menu" class="absolute top-4 right-4 text-accent">
+                <button id="close-menu" class="absolute top-6 right-6 text-accent">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
                 <a href="#about" class="scroll-link text-xl hover:text-accent">About</a>
                 <a href="#skills" class="scroll-link text-xl hover:text-accent">Skills</a>
+                <a href="#career" class="scroll-link text-xl hover:text-accent">Career</a>
                 <a href="#projects" class="scroll-link text-xl hover:text-accent">Projects</a>
                 <a href="#contacts" class="scroll-link text-xl hover:text-accent">Contact</a>
             </div>
@@ -66,17 +68,14 @@
             <canvas class="absolute" id="background-animation"></canvas>
             <div class="relative h-full flex flex-col md:flex-row items-center justify-center gap-8 mx-4 md:mx-[10%] md:-translate-y-12">
                 <div class="md:flex-1">
-                    <p class="text-xl font-semibold text-accent">Hi, my name is</p>
+                    <p class="text-lg font-light text-accent">Hi, my name is</p>
                     <h2 class="text-3xl md:text-6xl font-bold mb-4">Mykola Timurka</h2>
-                    <p class="text-lg text-secondary">
+                    <p class="text-sm md:text-lg text-secondary">
                         I'm a full-stack web developer specializing in modern JavaScript and PHP frameworks.
                     </p>
                 </div>
                 <div class="md:flex-1 h-auto overflow-hidden shadow-2xl">
-                    <video class="object-cover" autoplay muted loop>
-                        <source src="./hero.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <img src="./img/hero.gif" />
                 </div>
             </div>
             <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-accent rounded-full border-accent border-2 px-2 py-4 animate-pulse">
@@ -85,10 +84,10 @@
         </section>
 
         <section class="snap-start w-full h-screen relative overflow-hidden pt-24" id="about">
-            <div class="h-full mx-4 md:mx-[10%] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 md:items-center">
+            <div class="h-full mx-4 md:mx-[10%] pb-8 flex flex-col md:flex-row gap-4 md:gap-16 md:items-center justify-center">
                 <!-- Left Side: About Text -->
-                <div class="flex-1 order-2 md:order-1 space-y-4 text-lg text-secondary">
-                    <h2 class="text-3xl font-bold text-accent">About Me</h2>
+                <div class="md:basis-2/3 order-2 md:order-1 space-y-2 md:space-y-4 text-secondary text-sm md:text-base">
+                    <h2 class="text-xl md:text-3xl font-bold text-accent">About Me</h2>
                     <p>
                         I'm a passionate web developer with over 12 years of experience building modern web applications.
                         My journey started with PHP, and over the years, I've transitioned to JavaScript frameworks like Vue.js and backend solutions using Nest.js.
@@ -100,26 +99,34 @@
                         I have a proven ability to lead end-to-end projects, collaborate effectively with cross-functional teams, and solve complex technical challenges.
                     </p>
 
-                    <a target="_blank" href="./cv.pdf" download="CV Mykola Timurka (Full-Stack Developer, JS_PHP).pdf" class="px-4 py-2 bg-accent rounded text-primary hover:bg-accent/50 transition-colors">Download CV</a>
+                    <div class="mt-8">
+                        <a target="_blank" href="./cv.pdf" download="CV Mykola Timurka (Full-Stack Developer, JS_PHP).pdf" class="px-4 py-2 bg-accent rounded text-primary hover:bg-accent/50 transition-colors">Download CV</a>
+                    </div>
                 </div>
 
                 <!-- Right Side: Image with Effect -->
-                <div class="relative group w-full max-w-sm mx-auto order-1 md:order-2">
-                    <div class="relative overflow-hidden rounded-lg">
-                        <img src="./img/photo.webp" width="384px" height="512px" alt="Mykola Timurka" class="w-full md:h-auto md:object-cover object-contain transition-transform duration-300 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-accent contrast-300 opacity-30 group-hover:opacity-0 transition duration-300"></div>
+                 <div class="md:flex-1 order-1 md:order-2">
+                    <div class="relative group max-w-xs h-fit mx-auto overflow-hidden rounded-lg">
+                        <picture class="block transition-transform duration-300 group-hover:scale-105">
+                            <source srcset="./img/photo-sm.webp" media="(max-width: 768px)">
+                            <source srcset="./img/photo.webp">
+                            <img src="./img/photo-sm.webp" alt="Mykola Timurka" class="block w-full h-auto object-cover rounded-lg align-middle">
+                        </picture>
+                        <div class="absolute inset-0 bg-accent contrast-300 opacity-30 group-hover:opacity-0 rounded-lg pointer-events-none transition duration-300"></div>
                     </div>
-                </div>
+                 </div>
             </div>
         </section>
 
         <section class="snap-start w-full min-h-screen relative overflow-hidden pt-24" id="skills">
-            <h2 class="text-center text-3xl font-bold mb-4 md:mb-8 text-accent">Skills</h2>
+            <div class="min-h-[calc(100vh_-_6rem)] flex flex-col px-4 md:px-[10%] md:items-center justify-center">
+                <h2 class="text-center text-xl md:text-3xl font-bold text-accent mb-2">Skills</h2>
+                <h3 class="text-secondary text-sm mb-4 md:mb-12">
+                    A strong foundation in modern web technologies with a focus on performance, usability, and scalable architecture.
+                </h3>
 
-            <div class="px-4 md:px-[10%] flex flex-col md:flex-row gap-16">
-                <div class="flex-1">
-                    <h3 class="text-white font-semibold text-xl mb-4">My Skillset:</h3>
-                    <div class="flex justify-between mb-6">
+                <div class="flex gap-4 md:flex-col mb-8">
+                    <div class="flex flex-col md:flex-row justify-between md:justify-center gap-4 mb-6">
                         <svg class="w-10 h-10" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M0 0h256v256H0V0z" fill="#F7DF1E"></path><path d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247L210.29 147.43c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574"></path></g></svg>
                         <svg class="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_php3</title><path d="M7.6,13.791a2.352,2.352,0,0,1,1.745.483,1.916,1.916,0,0,1,.207,1.66,2.78,2.78,0,0,1-.918,1.748,3.375,3.375,0,0,1-2.07.529h-1.4L6.024,13.8ZM2,22.677H4.3l.545-2.8H6.812A7.049,7.049,0,0,0,8.956,19.6a4.06,4.06,0,0,0,1.53-.918A4.585,4.585,0,0,0,11.93,16.1a3.288,3.288,0,0,0-.55-2.922A3.671,3.671,0,0,0,8.47,12.129H4.057Z" style="fill:#8993be"></path><path d="M13.617,9.323H15.9l-.553,2.8h2.031a3.956,3.956,0,0,1,2.645.669,2.213,2.213,0,0,1,.436,2.167l-.954,4.909H17.195l.908-4.667a1.267,1.267,0,0,0-.114-1.086,1.6,1.6,0,0,0-1.144-.286H15.022l-1.175,6.044H11.559Z" style="fill:#8993be"></path><path d="M25.539,13.791a2.352,2.352,0,0,1,1.745.483,1.916,1.916,0,0,1,.207,1.66,2.78,2.78,0,0,1-.918,1.748,3.375,3.375,0,0,1-2.074.529H23.1l.858-4.416Zm-5.6,8.886h2.3l.545-2.8h1.968A7.049,7.049,0,0,0,26.9,19.6a4.06,4.06,0,0,0,1.53-.918A4.585,4.585,0,0,0,29.869,16.1a3.288,3.288,0,0,0-.55-2.922,3.671,3.671,0,0,0-2.909-1.046h-4.42Z" style="fill:#8993be"></path></g></svg>
                         <svg class="w-10 h-10" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <polygon fill="#007ACC" transform="translate(128.000000, 128.000000) scale(1, -1) translate(-128.000000, -128.000000) " points="0 128 0 0 128 0 256 0 256 128 256 256 128 256 0 256"> </polygon> <path d="M146.658132,223.436863 L146.739401,212.953054 L130.079084,212.953054 L113.418767,212.953054 L113.418767,165.613371 L113.418767,118.273689 L101.63464,118.273689 L89.8505126,118.273689 L89.8505126,165.613371 L89.8505126,212.953054 L73.1901951,212.953054 L56.5298776,212.953054 L56.5298776,223.233689 C56.5298776,228.922577 56.6517824,233.676863 56.8143221,233.798768 C56.9362269,233.961308 77.2130522,234.042577 101.797179,234.001943 L146.536227,233.880038 L146.658132,223.436863 Z" fill="#FFFFFF" transform="translate(101.634640, 176.142993) rotate(-180.000000) translate(-101.634640, -176.142993) "> </path> <path d="M206.566631,234.272145 C213.068219,232.646748 218.025679,229.761668 222.57679,225.048018 C224.933616,222.528653 228.428219,217.936907 228.712663,216.839764 C228.793933,216.514684 217.659965,209.037859 210.914568,204.852462 C210.670758,204.689922 209.69552,205.74643 208.598377,207.371827 C205.306949,212.166748 201.852981,214.239129 196.570441,214.604843 C188.809171,215.133097 183.811076,211.069605 183.851711,204.283573 C183.851711,202.292462 184.136155,201.114049 184.948854,199.488653 C186.65552,195.953414 189.825044,193.840399 199.7806,189.533097 C218.106949,181.649922 225.949489,176.448653 230.825679,169.053097 C236.270758,160.804208 237.489806,147.638494 233.792028,137.845478 C229.728536,127.199129 219.651076,119.966113 205.469489,117.568653 C201.080917,116.796589 190.678377,116.918494 185.964727,117.771827 C175.684092,119.600399 165.931711,124.679764 159.917743,131.343891 C157.560917,133.944526 152.969171,140.730557 153.253616,141.218176 C153.37552,141.380716 154.432028,142.030875 155.610441,142.721668 C156.748219,143.371827 161.05552,145.850557 165.119012,148.207383 L172.473933,152.474049 L174.01806,150.198494 C176.171711,146.907065 180.885362,142.396589 183.729806,140.893097 C191.897425,136.585795 203.112663,137.195319 208.639012,142.15278 C210.995838,144.30643 211.971076,146.541351 211.971076,149.83278 C211.971076,152.799129 211.605362,154.099446 210.061235,156.334367 C208.070123,159.178811 204.006631,161.576272 192.466314,166.574367 C179.259965,172.263256 173.571076,175.798494 168.369806,181.406113 C165.362822,184.656907 162.518377,189.858176 161.339965,194.206113 C160.364727,197.822621 160.120917,206.884208 160.892981,210.541351 C163.61552,223.300716 173.245996,232.199764 187.143139,234.841034 C191.653616,235.694367 202.137425,235.369287 206.566631,234.272145 Z" fill="#FFFFFF" transform="translate(194.578507, 176.190240) scale(1, -1) translate(-194.578507, -176.190240) "> </path> </g> </g></svg>
@@ -134,7 +141,8 @@
                         <svg class="w-10 h-10" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#FFFFFF" d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.165-.315c-.415.491-.936.737-1.564.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.191-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.618.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.049-.214c0-.085.043-.133.128-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.1-.208a.365.365 0 01.214-.053h.425c.102 0 .17.016.213.053.043.032.08.107.101.208l.841 3.578.92-3.578a.458.458 0 01.107-.208.346.346 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.76.76 0 01-.038.133l-1.283 4.127c-.032.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.378.378 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.46.46 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.427 2.427 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.436 1.436 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z"></path> <g fill="#F90" fill-rule="evenodd" clip-rule="evenodd"> <path d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z"></path> <path d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.218-.1.213-.53.687-1.72.463-2.003z"></path> </g> </g></svg>
                         <svg class="w-10 h-10" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="16" cy="16" r="14" fill="#1794D4"></circle> <path d="M18 7H16V9H18V7Z" fill="white"></path> <path d="M10 10H12V12H10V10Z" fill="white"></path> <path d="M6.00155 16.9414C6.17244 19.8427 7.90027 24 14 24C20.8 24 23.8333 19 24.5 16.5C25.3333 16.5 27.2 16 28 14C27.5 13.5 25.5 13.5 24.5 14C24.5 13.2 24 11.5 23 11C22.3333 11.6667 21.3 13.4 22.5 15C22 16 20.6667 16 20 16H6.9429C6.41342 16 5.97041 16.4128 6.00155 16.9414Z" fill="white"></path> <path d="M9 13H7V15H9V13Z" fill="white"></path> <path d="M10 13H12V15H10V13Z" fill="white"></path> <path d="M15 13H13V15H15V13Z" fill="white"></path> <path d="M16 13H18V15H16V13Z" fill="white"></path> <path d="M21 13H19V15H21V13Z" fill="white"></path> <path d="M15 10H13V12H15V10Z" fill="white"></path> <path d="M16 10H18V12H16V10Z" fill="white"></path> </g></svg>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4 md:gap-8">
+
+                    <div class="flex-1 grid md:grid-cols-4 gap-4 md:gap-8">
                         <div class="p-4 bg-accent/10 relative">
                             <h3 class="text-lg font-semibold mb-4 border-b-2 border-accent">Backend</h3>
                             <ul class="space-y-1 text-sm font-light">
@@ -174,20 +182,26 @@
                                 <li>AWS</li>
                                 <li class="ml-2 text-secondary">Lambda, Cognito, IAM</li>
                                 <li class="ml-2 text-secondary">Elastic Beanstalk, Amplify, S3</li>
-                                <li class="ml-2 text-secondary">RDS, DynamoDB</li>
-                                <li class="ml-2 text-secondary">SNS, SES, SQS</li>
+                                <li class="ml-2 text-secondary">RDS, DynamoDB, SNS, SES, SQS</li>
                                 <li>Docker</li>
                             </ul>
                             <i class="fa-solid fa-terminal text-gray-100/20 text-6xl absolute bottom-6 right-6"></i>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="flex-1 space-y-4 mb-4">
-                    <h3 class="text-white font-semibold text-lg mb-4">My Experience:</h3>
+        <section class="snap-start w-full min-h-screen relative overflow-hidden pt-24" id="career">
+            <div class="flex flex-col px-4 md:px-[10%] md:items-center justify-center">
+                <h2 class="text-center text-xl md:text-3xl font-bold mb-2 text-accent">My Experience</h2>
+                <h3 class="text-center text-secondary text-sm mb-4 md:mb-8">
+                    I’ve led and contributed to impactful software projects across various industries.<br/>My focus has always been on delivering reliable solutions aligned with business objectives.
+                </h3>
+                <div class="w-full max-w-3xl md:mx-auto flex flex-col space-y-4 mb-8">
                     <div class="accordion-item border border-accent rounded-lg overflow-hidden transition-colors">
                         <button class="accordion-header w-full cursor-pointer flex justify-between items-center p-4 bg-accent text-primary font-semibold">
-                            <span>Full-Stack Engineer <span class="font-light">(A-Team Global)</span></span>
+                            <span class="max-w-1/2">Full-Stack Engineer <span class="font-light">(A-Team Global)</span></span>
                             <span class="flex items-center space-x-2 font-light">
                                 <span class="text-sm">(April 2023 &ndash; Present)</span> 
                                 <i class="fa fa-minus"></i>
@@ -320,9 +334,11 @@
         </section>
 
         <section class="snap-start w-full min-h-screen relative overflow-hidden pt-24" id="projects">
-            <h2 class="text-center text-3xl font-bold mb-2 text-accent">Projects</h2>
-            <p class="text-center text-sm text-secondary mb-8">The main part of code I produces is under the NDI, so I can`t share it with the world. But here are some of my personal projects as example.</p>
-            <div class="mx-[10%] grid md:grid-cols-3 gap-8">
+            <h2 class="text-center text-xl md:text-3xl font-bold mb-2 text-accent">Projects</h2>
+            <h3 class="text-center text-secondary text-sm mx-4 mb-4 md:mb-8">
+                While most of my core work is protected under non-disclosure agreements, here are select public examples that reflect my technical expertise and problem-solving mindset.
+            </h3>
+            <div class="mx-4 md:mx-[10%] grid md:grid-cols-3 gap-8 mb-8">
                 <div class="group text-secondary rounded">
                     <div class="w-full max-h-64 overflow-hidden">
                         <img class="object-cover group-hover:scale-125 transition-transform" src="./img/fan-store.webp" alt="Fan Store Project">
@@ -357,33 +373,57 @@
         </section>
 
         <section class="snap-start w-full h-screen relative overflow-hidden pt-24" id="contacts">
-            <div class="h-full flex flex-col items-center justify-center mx-[10%]">
-                <h2 class="text-center text-3xl font-bold mb-2 text-accent">Contact Me</h2>
-                <p class="text-sm text-light text-secondary mb-8">You can contact me by filling out this form. I'll get back to you as soon as possible.</p>
+            <div class="h-full flex flex-col items-center justify-center mx-4 md:mx-[10%]">
+                <h2 class="text-center text-xl md:text-3xl font-bold mb-2 text-accent">Contact Me</h2>
+                <p class="text-sm text-secondary mb-4 md:mb-8">
+                    Ready to discuss your project or opportunity? Let’s connect — whether it's a freelance role or a long-term collaboration.
+                </p>
         
                 <!-- Contact Form -->
-                <form action="#" method="POST" class="flex flex-col space-y-6 mb-12">
-                    <div class="flex space-x-4">
+                <form action="#" method="POST" id="contact-form" class="w-full max-w-xl flex flex-col space-y-4 md:space-y-6 mb-4 md:mb-12">
+                    <div class="flex flex-col md:flex-row gap-4">
                         <div class="flex-1">
                             <label for="name" class="text-sm mb-1 text-light">Your Name:</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required class="w-full p-2 border-1 border-white rounded">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                                class="w-full p-2 border-1 border-white rounded" />
+                            <small class="text-red"></small>
                         </div>
                         
                         <div class="flex-1">
                             <label for="email" class="text-sm mb-1 text-light">Email Address:</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" required class="w-full p-2 border-1 border-white rounded">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                                class="w-full p-2 border-1 border-white rounded" />
+                            <small class="text-red"></small>
                         </div>
                     </div>
     
                     <div>
                         <label for="message" class="text-sm mb-1 text-light">Your Message:</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Hi, I think wee need your services for company X" required class="w-full p-2 border-1 border-white rounded resize-none"></textarea>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Hi, I think wee need your services for company X"
+                            required
+                            class="w-full p-2 border-1 border-white rounded resize-none">
+                        </textarea>
+                        <small class="text-red"></small>
                     </div>
                     
                     <button type="submit" class="cursor-pointer bg-accent hover:bg-accent/85 transition-colors text-primary px-3 py-2 rounded">Send Message</button>
                 </form>
 
-                <p class="font-light text-secondary mb-4">or connect with Me by my social networks:</p>
+                <p class="font-light text-secondary mb-2">or by social networks:</p>
     
                 <div class="flex space-x-6">
                     <a href="https://linkedin.com/in/mykola-timurka" target="_blank" class="text-white hover:text-accent hover:-translate-y-1 transition">
@@ -396,13 +436,14 @@
                         <i class="fab fa-facebook"></i> Facebook
                     </a>
                 </div>
-        </div>
+            </div>
+
+            <footer class="absolute bottom-4 text-center w-full text-sm text-secondary">
+                Created by Mykola Timurka © 2025
+            </footer>
         </section>
     </main>
 
-    <footer class="absolute bottom-4 text-center w-full text-sm text-secondary">
-        Created by Mykola Timurka © 2025
-    </footer>
 
     <a href="#hero" id="back-to-top-btn" class="hidden scroll-link text-center leading-11 cursor-pointer fixed bottom-8 right-8 text-accent border-2 bg-accent/10 hover:bg-accent/50 transition-colors rounded-full h-12 w-12">
         <i class="fa fa-arrow-up"></i>

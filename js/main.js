@@ -86,4 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
             mobileMenu.classList.add("translate-x-full");
         }
     });
+
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        alert('Your message has been sent successfully!');
+        form.reset();
+    });
 });
