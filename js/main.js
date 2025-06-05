@@ -87,11 +87,57 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    function showMessage(message, type) {
+        const block = document.getElementById('btn-contact-message');
+        block.textContent = message;
+        if (type === 'success') {
+            block.classList.add('bg-green-600 text-green-100');
+        } else if (type === 'error') {
+            block.classList.add('bg-red-600 text-red-100');
+        }
+    }
+
     document.getElementById('contact-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const form = e.target;
+        const submitButton = document.getElementById('btn-contact-submit');
 
-        alert('Your message has been sent successfully!');
-        form.reset();
+        // Get form data
+        const formData = {
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            message: form.message.value.trim()
+        };
+
+        try {
+            submitButton.disabled = true;
+            submitButton.classList.add('opacity-50');
+            submitButton.textContent = "Sending...";
+
+            const response = await fetch('https://z5moudc4tg.execute-api.eu-central-1.amazonaws.com/portfolio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                showMessage('Thank you! Your message has been sent successfully.', 'success');
+                form.reset();
+            } else {
+                showMessage(result.error || 'Failed to send message. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showMessage('Network error. Please check your connection and try again.', 'error');
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+            submitButton.classList.remove('opacity-50');
+        }
     });
 });
