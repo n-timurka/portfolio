@@ -90,10 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function showMessage(message, type) {
         const block = document.getElementById('btn-contact-message');
         block.textContent = message;
+        block.classList.remove('hidden');
         if (type === 'success') {
-            block.classList.add('bg-green-600 text-green-100');
+            block.classList.add(['bg-green-600', 'text-green-100']);
         } else if (type === 'error') {
-            block.classList.add('bg-red-600 text-red-100');
+            block.classList.add(['bg-red-600', 'text-red-100']);
         }
     }
 
